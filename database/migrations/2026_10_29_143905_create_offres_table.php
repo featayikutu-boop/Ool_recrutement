@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('besoin_id')
+                ->unique()
+                ->constrained('besoins')
+                ->restrictOnDelete();
+            $table->string('titre');
+            $table->text('description')->nullable();
+            $table->date('date_publication')->nullable();
+            $table->date('date_cloture')->nullable();
+            $table->string('statut')->default('brouillon');
             $table->timestamps();
         });
     }

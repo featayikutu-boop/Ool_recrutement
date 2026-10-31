@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('societe_id')
                 ->constrained('societes')
-                ->cascadeOnDelete();
+                ->restrictOnDelete();
             $table->foreignId('poste_id')
                 ->constrained('postes')
                 ->restrictOnDelete();
